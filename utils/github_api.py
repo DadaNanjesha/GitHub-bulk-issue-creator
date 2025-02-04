@@ -22,6 +22,7 @@ def create_issue(issue_data):
     else:
         print(f"Failed to create issue '{issue_data['title']}': {response.content}")
 
+    return response
 
 def create_issues_from_list(issues_list):
     """Create multiple issues from a list."""

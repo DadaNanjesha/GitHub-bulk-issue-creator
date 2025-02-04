@@ -35,6 +35,7 @@ class TestGitHubAPI(unittest.TestCase):
 
         # Call the function
         response = create_issue(self.test_issue)
+        print(response)
 
         # Assert that the API was called with the correct parameters
         mock_post.assert_called_once_with(
@@ -42,8 +43,8 @@ class TestGitHubAPI(unittest.TestCase):
         )
 
         # Check if the response matches the expected status
-        self.assertEqual(response["title"], "Test Issue")
-        self.assertEqual(response["body"], "This is a test issue")
+        self.assertEqual(response.json()["title"], "Test Issue")
+        self.assertEqual(response.status_code, 201)
 
     @patch("requests.post")
     def test_create_multiple_issues(self, mock_post):
@@ -89,7 +90,7 @@ class TestGitHubAPI(unittest.TestCase):
         response = create_issue(self.test_issue)
 
         # Assert that the response matches the expected error structure
-        self.assertEqual(response, {"message": "Bad Request"})
+        self.assertEqual(response.json(), {"message": "Bad Request"})
 
     @patch("requests.post")
     def test_create_issue_missing_data(self, mock_post):
@@ -108,7 +109,7 @@ class TestGitHubAPI(unittest.TestCase):
         response = create_issue(incomplete_issue)
 
         # Assert that the response matches the expected error structure
-        self.assertEqual(response, {"message": "Bad Request"})
+        self.assertEqual(response.json(), {"message": "Bad Request"})
 
 
 if __name__ == "__main__":
