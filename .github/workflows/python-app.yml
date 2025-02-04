@@ -31,13 +31,10 @@ jobs:
     # Step 4: Set up GitHub Secrets (GitHub username, repository, and token)
     - name: Set up GitHub Secrets
       run: |
-        echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
-        echo "REPO=${{ secrets.REPO }}" >> $GITHUB_ENV
-        echo "TOKEN=${{ secrets.TOKEN }}" >> $GITHUB_ENV
-        env:
-          USERNAME="DadaNanjesha"
-          REPO="GitHub-issue-creator"
-          TOKEN=${{ secrets.GITHUB_TOKEN }}
+        echo "USERNAME="DadaNanjesha" >> $GITHUB_ENV
+        echo "REPO="GitHub-issue-creator" >> $GITHUB_ENV
+        echo "TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+
         
        
 
