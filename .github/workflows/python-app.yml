@@ -35,7 +35,7 @@ jobs:
         echo "REPO=${{ secrets.REPO }}" >> $GITHUB_ENV
         echo "TOKEN=${{ secrets.TOKEN }}" >> $GITHUB_ENV
         env:
-          USERNAME=${{ secrets.GITHUB_USERNAME }}
+          USERNAME="DadaNanjesha"
           REPO="GitHub-issue-creator"
           TOKEN=${{ secrets.GITHUB_TOKEN }}
         
