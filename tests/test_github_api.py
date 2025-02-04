@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 import json
 from utils.github_api import create_issue, create_issues_from_list
-
+from config.config import USERNAME, REPO, TOKEN
 
 class TestGitHubAPI(unittest.TestCase):
 
@@ -14,9 +14,9 @@ class TestGitHubAPI(unittest.TestCase):
             "labels": ["bug"],
             "assignee": None,
         }
-        self.api_url = "https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/issues"
+        self.api_url = f"https://api.github.com/repos/{USERNAME}/{REPO}/issues"
         self.headers = {
-            "Authorization": "token YOUR_GITHUB_TOKEN",
+            "Authorization": f"token {TOKEN}",
             "Accept": "application/vnd.github.v3+json",
         }
 

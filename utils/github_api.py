@@ -1,13 +1,13 @@
 import requests
 import json
-from config.config import GITHUB_USERNAME, GITHUB_REPO, GITHUB_TOKEN
+from config.config import USERNAME, REPO, TOKEN
 
 # GitHub API URL for creating issues
-GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_USERNAME}/{GITHUB_REPO}/issues"
+GITHUB_API_URL = f"https://api.github.com/repos/{USERNAME}/{REPO}/issues"
 
 # Set up headers for authentication
 HEADERS = {
-    "Authorization": f"token {GITHUB_TOKEN}",
+    "Authorization": f"token {TOKEN}",
     "Accept": "application/vnd.github.v3+json",
 }
 

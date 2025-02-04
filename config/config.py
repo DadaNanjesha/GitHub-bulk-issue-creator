@@ -1,6 +1,7 @@
-# GitHub repository details
-GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"  # Your GitHub username
-GITHUB_REPO = "YOUR_REPOSITORY_NAME"  # The repository name where issues will be created
+import os
+
+USERNAME = os.getenv("USERNAME")  # Your GitHub username
+REPO = os.getenv("REPO")  # The repository name where issues will be created
 
 # GitHub Personal Access Token for authentication
-GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"  # Your GitHub personal access token
+TOKEN = os.getenv("TOKEN")  # Your GitHub personal access token
