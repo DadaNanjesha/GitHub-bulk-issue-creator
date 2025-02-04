@@ -23,8 +23,9 @@ class TestGitHubAPI(unittest.TestCase):
     @patch("requests.post")
     def test_create_issue(self, mock_post):
         """Test creating a single issue"""
-        mock_post.return_value.status_code = 201
-        mock_post.return_value.json.return_value = {
+        mock_response = mock_post.return_value
+        mock_response.status_code = 201
+        mock_response.json.return_value = {
             "id": 1,
             "title": "Test Issue",
             "body": "This is a test issue",
@@ -32,6 +33,7 @@ class TestGitHubAPI(unittest.TestCase):
             "assignee": None,
         }
 
+        # Call the function
         response = create_issue(self.test_issue)
 
         # Assert that the API was called with the correct parameters
@@ -46,8 +48,9 @@ class TestGitHubAPI(unittest.TestCase):
     @patch("requests.post")
     def test_create_multiple_issues(self, mock_post):
         """Test creating multiple issues"""
-        mock_post.return_value.status_code = 201
-        mock_post.return_value.json.return_value = {
+        mock_response = mock_post.return_value
+        mock_response.status_code = 201
+        mock_response.json.return_value = {
             "id": 1,
             "title": "Test Issue",
             "body": "This is a test issue",
@@ -78,30 +81,33 @@ class TestGitHubAPI(unittest.TestCase):
     @patch("requests.post")
     def test_create_issue_failure(self, mock_post):
         """Test failure to create an issue due to API error"""
-        mock_post.return_value.status_code = 400
-        mock_post.return_value.json.return_value = {"message": "Bad Request"}
+        mock_response = mock_post.return_value
+        mock_response.status_code = 400
+        mock_response.json.return_value = {"message": "Bad Request"}
 
+        # Simulate calling the create_issue function and assert the response
         response = create_issue(self.test_issue)
 
-        # Assert that the response status code is 400 (Bad Request)
+        # Assert that the response matches the expected error structure
         self.assertEqual(response, {"message": "Bad Request"})
 
     @patch("requests.post")
     def test_create_issue_missing_data(self, mock_post):
         """Test missing data during issue creation"""
-        # Create an issue without required fields like 'title' or 'body'
         incomplete_issue = {
             "title": "Missing Body",
             "labels": ["bug"],
             "assignee": None,
         }
 
-        mock_post.return_value.status_code = 400
-        mock_post.return_value.json.return_value = {"message": "Bad Request"}
+        mock_response = mock_post.return_value
+        mock_response.status_code = 400
+        mock_response.json.return_value = {"message": "Bad Request"}
 
+        # Simulate calling the create_issue function with missing data
         response = create_issue(incomplete_issue)
 
-        # Assert that the response status code is 400 due to missing 'body'
+        # Assert that the response matches the expected error structure
         self.assertEqual(response, {"message": "Bad Request"})
 
 
