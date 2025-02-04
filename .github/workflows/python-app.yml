@@ -31,9 +31,9 @@ jobs:
     # Step 4: Set up GitHub Secrets (GitHub username, repository, and token)
     - name: Set up GitHub Secrets
       run: |
-        echo "GITHUB_USERNAME=${{ secrets.GITHUB_USERNAME }}" >> $GITHUB_ENV
-        echo "GITHUB_REPO=${{ secrets.GITHUB_REPO }}" >> $GITHUB_ENV
-        echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+        echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
+        echo "REPO=${{ secrets.REPO }}" >> $GITHUB_ENV
+        echo "TOKEN=${{ secrets.TOKEN }}" >> $GITHUB_ENV
 
     # Step 5: Run the unit tests
     - name: Run tests
