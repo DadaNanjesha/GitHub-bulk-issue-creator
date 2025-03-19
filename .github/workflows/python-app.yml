@@ -32,7 +32,7 @@ jobs:
       - name: Set up environment variables and Run tests
         env:
           USERNAME: ${{ github.repository_owner }}
-          REPO: ${{ github.repository }}
+          REPO: ${{ secrets.REPO }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m unittest discover -s tests
