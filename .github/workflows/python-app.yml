@@ -33,11 +33,11 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           REPO: ${{ secrets.REPO }}
-          TOKEN: ${{ secrets.TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "USERNAME=$USERNAME" >> $GITHUB_ENV
           echo "REPO=$REPO" >> $GITHUB_ENV
-          echo "TOKEN=$TOKEN" >> $GITHUB_ENV
+          echo "TOKEN=$GITHUB_TOKEN" >> $GITHUB_ENV
 
       # Step 5: Run the unit tests
       - name: Run tests
