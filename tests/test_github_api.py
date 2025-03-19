@@ -17,9 +17,9 @@ class TestGitHubAPI(unittest.TestCase):
         self.patcher = patch.dict(
             os.environ,
             {
-                "USERNAME": "test_user",
-                "REPO": "test_repo",
-                "TOKEN": "test_token",
+                "USERNAME": os.getenv("USERNAME"),
+                "REPO": os.getenv("REPO"),
+                "TOKEN": os.getenv("TOKEN"),
             },
         )
         self.patcher.start()
