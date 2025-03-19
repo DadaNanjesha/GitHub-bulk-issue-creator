@@ -35,9 +35,6 @@ jobs:
         echo "REPO="GitHub-issue-creator" >> $GITHUB_ENV
         echo "TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
-        
-       
-
     # Step 5: Run the unit tests
     - name: Run tests
       run: |
