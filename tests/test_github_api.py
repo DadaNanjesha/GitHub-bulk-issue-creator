@@ -7,6 +7,9 @@ from utils.github_api import (
     create_issues_from_list,
     create_issues_from_csv,
 )
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class TestGitHubAPI(unittest.TestCase):
