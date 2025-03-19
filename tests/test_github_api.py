@@ -7,9 +7,6 @@ from utils.github_api import (
     create_issues_from_list,
     create_issues_from_csv,
 )
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 class TestGitHubAPI(unittest.TestCase):
@@ -20,9 +17,9 @@ class TestGitHubAPI(unittest.TestCase):
         self.patcher = patch.dict(
             os.environ,
             {
-                "USERNAME": os.getenv("USERNAME"),
-                "REPO": os.getenv("REPO"),
-                "TOKEN": os.getenv("GITHUB_TOKEN"),
+                "USERNAME": "test_user",
+                "REPO": "test_repo",
+                "TOKEN": "test_token",
             },
         )
         self.patcher.start()
