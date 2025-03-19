@@ -29,17 +29,10 @@ jobs:
           pip install -r requirements.txt
 
       # Step 4: Set up environment variables using GitHub Secrets
-      - name: Set up environment variables
+      - name: Set up environment variables and Run tests
         env:
           USERNAME: ${{ secrets.USERNAME }}
           REPO: ${{ secrets.REPO }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "USERNAME=$USERNAME" >> $GITHUB_ENV
-          echo "REPO=$REPO" >> $GITHUB_ENV
-          echo "TOKEN=$GITHUB_TOKEN" >> $GITHUB_ENV
-
-      # Step 5: Run the unit tests
-      - name: Run tests
         run: |
           python -m unittest discover -s tests
