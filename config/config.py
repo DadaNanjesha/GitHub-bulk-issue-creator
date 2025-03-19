@@ -4,14 +4,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # GitHub username or organization name or add new var
-USERNAME = os.getenv("USERNAME")
+USERNAME = os.getenv("USERNAME", "default_user")
 # The repository name where issues will be created
-REPO = os.getenv("REPO")
+REPO = os.getenv("REPO", "default_repo")
 # GitHub Personal Access Token for authentication
-TOKEN = os.getenv("GITHUB_TOKEN")  # Your GitHub personal access token
+# Your GitHub personal access token
+TOKEN = os.getenv("TOKEN", "default_token")
 # Path to your CSV file
 CSV_FILE_PATH = "issues.csv"
-
 
 # Verify that the environment variables are loaded
 if not all([USERNAME, REPO, TOKEN]):
