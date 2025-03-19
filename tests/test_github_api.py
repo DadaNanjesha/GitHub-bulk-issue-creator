@@ -1,29 +1,44 @@
 import unittest
 from unittest.mock import patch, Mock, mock_open
 import json
+import os
 from utils.github_api import (
     create_issue,
     create_issues_from_list,
     create_issues_from_csv,
 )
-from config.config import USERNAME, REPO, TOKEN
 
 
 class TestGitHubAPI(unittest.TestCase):
 
     def setUp(self):
         """Set up before each test"""
+        # Mock environment variables
+        self.patcher = patch.dict(
+            os.environ,
+            {
+                "USERNAME": "test_user",
+                "REPO": "test_repo",
+                "TOKEN": "test_token",
+            },
+        )
+        self.patcher.start()
+
         self.test_issue = {
             "title": "Test Issue",
             "body": "This is a test issue",
             "labels": ["bug"],
-            "assignee": USERNAME,  # Updated to use USERNAME
+            "assignee": "test_user",  # Use the mocked USERNAME
         }
-        self.api_url = f"https://api.github.com/repos/{USERNAME}/{REPO}/issues"
+        self.api_url = f"https://api.github.com/repos/test_user/test_repo/issues"
         self.headers = {
-            "Authorization": f"token {TOKEN}",
+            "Authorization": "token test_token",
             "Accept": "application/vnd.github.v3+json",
         }
+
+    def tearDown(self):
+        """Clean up after each test"""
+        self.patcher.stop()
 
     @patch("requests.post")
     def test_create_issue(self, mock_post):
@@ -35,7 +50,7 @@ class TestGitHubAPI(unittest.TestCase):
             "title": "Test Issue",
             "body": "This is a test issue",
             "labels": ["bug"],
-            "assignee": USERNAME,
+            "assignee": "test_user",
         }
         mock_post.return_value = mock_response
 
@@ -61,7 +76,7 @@ class TestGitHubAPI(unittest.TestCase):
             "title": "Test Issue",
             "body": "This is a test issue",
             "labels": ["bug"],
-            "assignee": USERNAME,
+            "assignee": "test_user",
         }
         mock_post.return_value = mock_response
 
@@ -70,13 +85,13 @@ class TestGitHubAPI(unittest.TestCase):
                 "title": "Issue 1",
                 "body": "This is the first test issue",
                 "labels": ["bug"],
-                "assignee": USERNAME,
+                "assignee": "test_user",
             },
             {
                 "title": "Issue 2",
                 "body": "This is the second test issue",
                 "labels": ["enhancement"],
-                "assignee": USERNAME,
+                "assignee": "test_user",
             },
         ]
 
@@ -110,7 +125,7 @@ class TestGitHubAPI(unittest.TestCase):
         incomplete_issue = {
             "title": "Missing Body",
             "labels": ["bug"],
-            "assignee": USERNAME,
+            "assignee": "test_user",
         }
 
         mock_response = Mock()
@@ -140,7 +155,7 @@ class TestGitHubAPI(unittest.TestCase):
             "title": "Test Issue",
             "body": "This is a test issue",
             "labels": ["bug"],
-            "assignee": USERNAME,
+            "assignee": "test_user",
         }
         mock_post.return_value = mock_response
 
