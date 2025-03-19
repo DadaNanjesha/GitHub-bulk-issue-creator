@@ -1,11 +1,7 @@
 import unittest
 from unittest.mock import patch, Mock, mock_open
 import json
-from utils.github_api import (
-    create_issue,
-    create_issues_from_list,
-    create_issues_from_csv,
-)
+from utils.github_api import create_issue, create_issues_from_list, create_issues_from_csv
 import os
 from dotenv import load_dotenv
 
@@ -13,6 +9,7 @@ load_dotenv()
 USERNAME = os.getenv("USERNAME")
 REPO = os.getenv("REPO")
 TOKEN = os.getenv("GITHUB_TOKEN")
+
 
 class TestGitHubAPI(unittest.TestCase):
 
@@ -49,7 +46,8 @@ class TestGitHubAPI(unittest.TestCase):
 
         # Assert that the API was called with the correct parameters
         mock_post.assert_called_once_with(
-            self.api_url, headers=self.headers, data=json.dumps(self.test_issue)
+            self.api_url, headers=self.headers, data=json.dumps(
+                self.test_issue)
         )
 
         # Check if the response matches the expected status
