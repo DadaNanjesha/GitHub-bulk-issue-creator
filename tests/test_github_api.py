@@ -6,8 +6,13 @@ from utils.github_api import (
     create_issues_from_list,
     create_issues_from_csv,
 )
-from config.config import USERNAME, REPO, TOKEN
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+USERNAME = os.getenv("USERNAME")
+REPO = os.getenv("REPO")
+TOKEN = os.getenv("GITHUB_TOKEN")
 
 class TestGitHubAPI(unittest.TestCase):
 
