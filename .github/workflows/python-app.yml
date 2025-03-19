@@ -3,7 +3,7 @@ name: Python application
 # This workflow will be triggered on push and pull requests to the 'main' branch
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
     branches: [main]
 
