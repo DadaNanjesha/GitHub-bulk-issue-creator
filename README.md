@@ -100,8 +100,6 @@ Execute the following command to generate issues from a CSV file:
 ```bash
 python main_csv.py
 ```
-The script reads issues from `issues.csv` and creates them automatically.
-
 ---
 
 ### 📝 **CSV File Integration**
@@ -109,31 +107,39 @@ The script reads issues from `issues.csv` and creates them automatically.
 You can now create issues faster using a **CSV file**. Here’s the required structure for the CSV file:
 
 #### **CSV File Structure**
-```csv
-title,body,labels,assignee
-Demo title-1,Description-1,"Backlog,Setup,Project Structure",USER-1
-Demo title-2,Description-2,label-2,USER-2
-```
 
-- **title**: The title of the issue.
-- **body**: The description of the issue.
-- **labels**: A comma-separated list of labels (e.g., `"Backlog,Setup,Project Structure"`).
-- **assignee**: The GitHub username of the assignee (leave empty for no assignee).
+| Column     | Description                                                                 | Example Value                                      |
+|------------|-----------------------------------------------------------------------------|----------------------------------------------------|
+| **title**  | The title of the issue.                                                     | `Set up initial project structure`                 |
+| **body**   | The description of the issue.                                               | `Create the directory structure for the project...`|
+| **labels** | A comma-separated list of labels (e.g., `"Backlog,Setup,Project Structure"`).| `"Backlog,Setup,Project Structure"`                |
+| **assignee**| The GitHub username of the assignee (leave empty for no assignee).          | `DadaNanjesha`                                     |
 
 #### **Example CSV File**
+
 Save the following content as `issues.csv` in the root directory:
 
-```csv
-title,body,labels,assignee
-Set up initial project structure,Create the directory structure for the project, including `data/`, `scripts/`, and `tests/ folders`, and initialize a basic Python environment.,"Backlog,Setup,Project Structure",DadaNanjesha
-Add API integration,Integrate the GitHub API to automate issue creation.,"Backlog,Feature,API Integration",DadaNanjesha
-```
+| title                                | body                                                                                       | labels                          | assignee      |
+|--------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------|---------------|
+| Set up initial project structure     | Create the directory structure for the project, including `data/`, `scripts/`, and `tests/ folders`, and initialize a basic Python environment. | `"Backlog,Setup,Project Structure"` | DadaNanjesha  |
+| Add API integration                  | Integrate the GitHub API to automate issue creation.                                       | `"Backlog,Feature,API Integration"` | DadaNanjesha  |
 
 ---
 
-## 🤝 Contributing
+### **How to Use the CSV File**
 
-🎉 We welcome contributions from the community! Follow these steps to contribute:
+1. Create a file named `issues.csv` in the root directory of the project.
+2. Add your issues in the above format.
+3. Run the following command to create issues from the CSV file:
+   ```bash
+   python main_csv.py
+   ```
+
+---
+
+## 🤝 **Open-Source & Community-Friendly**
+
+🎉 welcome contributions from the community! Follow these steps to contribute:
 
 1. **Fork the Repository**  
 2. **Create a Feature Branch** (`git checkout -b feature-branch`)  
@@ -188,7 +194,3 @@ if you find this project helpful!
 
 ---
 🎯 Happy Coding! 🚀
-
----
-
-Let me know if you need further adjustments! 😊
