@@ -9,7 +9,7 @@ USERNAME = os.getenv("USERNAME", "default_user")
 REPO = os.getenv("REPO", "default_repo")
 # GitHub Personal Access Token for authentication
 # Your GitHub personal access token
-TOKEN = os.getenv("TOKEN", "default_token")
+TOKEN = os.getenv("GITHUB_TOKEN", "default_token")
 # Path to your CSV file
 CSV_FILE_PATH = "issues.csv"
 
