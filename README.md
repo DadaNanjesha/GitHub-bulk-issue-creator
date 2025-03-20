@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) 
-[![Build Status](https://img.shields.io/github/workflow/status/YOUR_GITHUB_USERNAME/github-issue-creator/CI)](https://github.com/YOUR_GITHUB_USERNAME/github-issue-creator/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/DadaNanjesha/GitHub-issue-creator/python-app.yml?branch=main)](https://github.com/DadaNanjesha/GitHub-issue-creator/actions)
 
 ### 📌 Automate your GitHub Issue creation effortlessly!
 
@@ -11,9 +11,11 @@ The **GitHub Issue Creator** is a Python-based tool designed to automate the pro
 ---
 
 ## 🧐 Why Use This?
+
 ✅ **Automate Repetitive Tasks** – Quickly create multiple issues at once.  
 ✅ **Customizable** – Modify issue templates to match your project needs.  
 ✅ **Seamless GitHub API Integration** – Automatically push issues to any repository.  
+✅ **CSV File Integration** – Create issues faster using a CSV file.  
 ✅ **Open-Source & Community-Friendly** – Contribute, improve, and extend features!  
 
 ### 🚀 Ideal for:
@@ -34,36 +36,39 @@ Ensure you have:
 
 ### 📥 Clone the Repository
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/github-issue-creator.git
-cd github-issue-creator
+git clone https://github.com/DadaNanjesha/GitHub-issue-creator.git
+cd GitHub-issue-creator
 ```
+
 ### 📦 Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-*(If `requirements.txt` is missing, create one with the following content:)*  
-```
-requests>=2.25.0
-```
-
 ---
 
 ## 📂 Project Structure
 
 ```
-github-issue-creator/                  # Root directory
+GitHub-issue-creator/                  # Root directory
 │
 ├── config/                            # Configuration files
 │   └── config.py                      # GitHub repository settings & authentication
 │
 ├── issues/                            # Predefined issue templates
-│   └── issues_list.py                 # List of issues to be created
+│   ├── issues_list.py                 # List of issues to be created
+│
+├── tests/                             # Unit tests
+│   └── test_github_api.py             # Test cases for GitHub API integration
 │
 ├── utils/                             # Utility scripts
 │   └── github_api.py                  # GitHub API interaction functions
 │
-├── main.py                            # Main script to execute issue creation
+├── main_csv.py                        # Script for CSV-based API issue creation
+├── main_list.py                       # Script for list-based API issue creation
+├── .env                               # environment variables file
+├── requirements.txt                   # List of dependencies
 └── README.md                          # Project documentation
+
 ```
 
 ---
@@ -71,15 +76,58 @@ github-issue-creator/                  # Root directory
 ## 🚀 Usage
 
 ### 1️⃣ **Set Up Configuration**
-- Open `config/config.py`
-- Add your **GitHub repository** details and **personal access token**.
+1. Place file in root directory as shown below:
+   ```bash
+   .env
+   ```
+2. Open `.env` and add your **GitHub repository** details and **personal access token**:
+   ```env
+   USERNAME=your_github_username
+   REPO=your_repo_name
+   TOKEN=your_github_token
+   ```
 
 ### 2️⃣ **Run the Tool**
-Execute the following command to generate issues in your repository:
+#### **Option 1: Create Issues from a List**
+Execute the following command to generate issues from a predefined list:
 ```bash
-python main.py
+python main_list.py
 ```
 The script reads predefined issues from `issues/issues_list.py` and creates them automatically.
+
+#### **Option 2: Create Issues from a CSV**
+Execute the following command to generate issues from a CSV file:
+```bash
+python main_csv.py
+```
+The script reads issues from `issues.csv` and creates them automatically.
+
+---
+
+### 📝 **CSV File Integration**
+
+You can now create issues faster using a **CSV file**. Here’s the required structure for the CSV file:
+
+#### **CSV File Structure**
+```csv
+title,body,labels,assignee
+Demo title-1,Description-1,"Backlog,Setup,Project Structure",USER-1
+Demo title-2,Description-2,label-2,USER-2
+```
+
+- **title**: The title of the issue.
+- **body**: The description of the issue.
+- **labels**: A comma-separated list of labels (e.g., `"Backlog,Setup,Project Structure"`).
+- **assignee**: The GitHub username of the assignee (leave empty for no assignee).
+
+#### **Example CSV File**
+Save the following content as `issues.csv` in the root directory:
+
+```csv
+title,body,labels,assignee
+Set up initial project structure,Create the directory structure for the project, including `data/`, `scripts/`, and `tests/ folders`, and initialize a basic Python environment.,"Backlog,Setup,Project Structure",DadaNanjesha
+Add API integration,Integrate the GitHub API to automate issue creation.,"Backlog,Feature,API Integration",DadaNanjesha
+```
 
 ---
 
@@ -94,6 +142,19 @@ The script reads predefined issues from `issues/issues_list.py` and creates them
 5. **Open a Pull Request** 🚀  
 
 💡 If you're planning major changes, **open an issue first** to discuss your proposal.
+
+---
+
+## 💖 Sponsor This Project
+
+If you find this project helpful, consider sponsoring it to support further development. Your sponsorship will help us:
+
+- Add new features 🚀
+- Improve documentation 📚
+- Fix bugs 🐛
+- Maintain the project 🛠️
+
+👉 **[Sponsor this project](https://github.com/sponsors/DadaNanjesha)**
 
 ---
 
@@ -117,7 +178,8 @@ if you find this project helpful!
 
 ### 🔥 Key Improvements:
 
-
+✅ **CSV File Integration** – Added support for creating issues faster using a CSV file.  
+✅ **Sponsorship Section** – Encourages users to sponsor the project for further development.  
 ✅ **More engaging introduction** – Makes the project sound exciting and valuable.  
 ✅ **Clearer structure & formatting** – Uses emojis, sections, and highlights for better readability.  
 ✅ **More details on usage & contribution** – Helps first-time users get started quickly.  
@@ -125,4 +187,8 @@ if you find this project helpful!
 ✅ **Enhanced readability** – Proper code blocks, file structures, and bold text for clarity.  
 
 ---
-🎯 Happy Coding! 🚀  
+🎯 Happy Coding! 🚀
+
+---
+
+Let me know if you need further adjustments! 😊
