@@ -1,9 +1,9 @@
 name: Python application
 
-# This workflow will be triggered on push and pull requests to the 'main' branch
+# This workflow will be triggered on push and pull requests to the 'main' and 'dev' branches
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
     branches: [main]
 
@@ -12,34 +12,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repository code
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    # Step 2: Set up Python
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'  # Specify the Python version you want to use (e.g., 3.x)
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Specify the Python version you want to use (e.g., 3.x)
 
-    # Step 3: Install dependencies
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    # Step 4: Set up GitHub Secrets (GitHub username, repository, and token)
-    - name: Set up GitHub Secrets
-      run: |
-        echo "USERNAME="DadaNanjesha" >> $GITHUB_ENV
-        echo "REPO="GitHub-issue-creator" >> $GITHUB_ENV
-        echo "TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      # Step 4: Set up environment variables using GitHub Secrets
+      - name: Set up environment variables and Run tests
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Extract repository name from github.repository
+          REPO=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          echo "REPO=$REPO" >> $GITHUB_ENV
 
-        
-       
+      # Step 5: Debug environment variables
+      - name: Debug environment variables
+        run: |
+          echo "USERNAME: $USERNAME"
+          echo "REPO: $REPO"
+          echo "TOKEN: $TOKEN"
 
-    # Step 5: Run the unit tests
-    - name: Run tests
-      run: |
-        python -m unittest discover -s tests
-
+      # Step 6: Run the unit tests
+      - name: Run tests
+        run: |
+          python -m unittest discover -s tests
