@@ -3,19 +3,24 @@ from unittest.mock import patch, Mock, mock_open
 import json
 from utils.github_api import create_issue, create_issues_from_list, create_issues_from_csv
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-USERNAME = os.getenv("USERNAME")
-REPO = os.getenv("REPO")
-TOKEN = os.getenv("GITHUB_TOKEN")
+from config.config import USERNAME, REPO, TOKEN
 
 
 class TestGitHubAPI(unittest.TestCase):
 
     def setUp(self):
         """Set up before each test"""
+        self.patcher = patch.dict(
+            os.environ,
+            {
+                "USERNAME": USERNAME,  # Mocked GitHub username
+                "REPO": REPO,  # Mocked repository name
+                "TOKEN": TOKEN,  # Mocked GitHub token
+            },
+        )
+        self.patcher.start()
+
+
         self.test_issue = {
             "title": "Test Issue",
             "body": "This is a test issue",
