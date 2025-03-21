@@ -39,6 +39,9 @@ def main():
     # Main Title
     st.markdown("<h1 class='header'>🚀 GitHub Bulk Issue Creator</h1>",
                 unsafe_allow_html=True)
+    st.write("<h4>📌 Automate your GitHub Issue creation effortlessly!</h4>",
+             unsafe_allow_html=True)
+    st.write("<p>Tired of manually creating GitHub issues? The GitHub Issue Creator is a Python-based tool designed to automate this process, saving you valuable time and ensuring efficient task tracking. Whether you're managing a personal project or a large open-source repository, this tool is your go-to solution.<p>", unsafe_allow_html=True)
 
     # Sidebar for GitHub credentials
     with st.sidebar:
