@@ -6,7 +6,9 @@
 
 ### 📌 Automate your GitHub Issue creation effortlessly!
 
-The **GitHub Issue Creator** is a Python-based tool designed to automate the process of creating GitHub issues in your repositories. Whether you're managing a personal project or a large open-source repository, this tool saves time and ensures that necessary tasks are tracked efficiently.
+Tired of manually creating GitHub issues? The **GitHub Issue Creator** is a Python-based tool designed to automate this process, saving you valuable time and ensuring efficient task tracking. Whether you're managing a personal project or a large open-source repository, this tool is your go-to solution.
+
+✨ **Explore the App:** [Create Bulk Issues on Git](https://create-bulk-issues-on-git.streamlit.app/) ✨ - Try it out now on Streamlit! 
 
 ---
 
@@ -35,13 +37,13 @@ Ensure you have:
 - **Git** → [Download Git](https://git-scm.com/downloads)
 
 ### 📥 Clone the Repository
-```bash
+```
 git clone https://github.com/DadaNanjesha/GitHub-issue-creator.git
 cd GitHub-issue-creator
 ```
 
 ### 📦 Install Dependencies
-```bash
+```
 pip install -r requirements.txt
 ```
 ---
@@ -77,11 +79,11 @@ GitHub-issue-creator/                  # Root directory
 
 ### 1️⃣ **Set Up Configuration**
 1. Place file in root directory as shown below:
-   ```bash
+   ```
    .env
    ```
 2. Open `.env` and add your **GitHub repository** details and **personal access token**:
-   ```env
+   ```
    USERNAME=your_github_username
    REPO=your_repo_name
    TOKEN=your_github_token
@@ -90,14 +92,14 @@ GitHub-issue-creator/                  # Root directory
 ### 2️⃣ **Run the Tool**
 #### **Option 1: Create Issues from a List**
 Execute the following command to generate issues from a predefined list:
-```bash
+```
 python main_list.py
 ```
 The script reads predefined issues from `issues/issues_list.py` and creates them automatically.
 
 #### **Option 2: Create Issues from a CSV**
 Execute the following command to generate issues from a CSV file:
-```bash
+```
 python main_csv.py
 ```
 ---
@@ -131,7 +133,7 @@ Save the following content as `issues.csv` in the root directory:
 1. Create a file named `issues.csv` in the root directory of the project.
 2. Add your issues in the above format.
 3. Run the following command to create issues from the CSV file:
-   ```bash
+   ```
    python main_csv.py
    ```
 
@@ -177,13 +179,17 @@ For any questions, issues, or feature requests, feel free to:
 
 ---
 
-💡 **Star this repository** ⭐ 
-if you find this project helpful!  
+💡 **Star this repository** ⭐⭐⭐⭐⭐   
+   If you find this project helpful!  
+
+🔔 **Watch releases**   
+   To stay updated with new features! 
 
 ---
 
 ### 🔥 Key Improvements:
 
+✅ **Streamlit App Integration** - Try the app directly via the new link!
 ✅ **CSV File Integration** – Added support for creating issues faster using a CSV file.  
 ✅ **Sponsorship Section** – Encourages users to sponsor the project for further development.  
 ✅ **More engaging introduction** – Makes the project sound exciting and valuable.  
@@ -192,10 +198,9 @@ if you find this project helpful!
 ✅ **Better "Why Use This?" section** – Explains the benefits concisely.  
 ✅ **Enhanced readability** – Proper code blocks, file structures, and bold text for clarity.  
 
-
 ---
 ### 🎯 Further development in pipeline
-- Creating UI. 
+- Customizing the UI. 
 - Optimization if required.
 - Can include new features for better user experience.
 ---
