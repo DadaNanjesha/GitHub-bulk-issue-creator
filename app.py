@@ -4,6 +4,22 @@ from io import StringIO
 from utils.github_api import create_issues_from_csv
 
 
+# Function to generate the sample CSV content
+def get_sample_csv():
+    """Generate a sample CSV file with the specified format."""
+    sample_data = {
+        "title": ["Demo title-1", "Demo title-2", "Demo title-3"],
+        "body": ["Description-1", "Description-2", "Description-3"],
+        "labels": [
+            "bug, documentation, duplicate",
+            '"enhancement", "good first issue", "help wanted"',
+            '"invalid", "question", "wontfix"',
+        ],
+        "assignee": ["USER-1", "USER-2", "USER-3"],
+    }
+    df = pd.DataFrame(sample_data)
+    return df.to_csv(index=False).encode("utf-8")
+
 def main():
     st.title("GitHub Bulk Issue Creator from CSV")
 
@@ -19,6 +35,16 @@ def main():
     # Main content area
     st.write("### Upload CSV File to Create GitHub Issues")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+
+    # Add a button to download the sample CSV file
+    st.write("### Download Sample CSV File to create GitHub Issues")
+    sample_csv = get_sample_csv()
+    st.download_button(
+        label="Download Sample CSV",
+        data=sample_csv,
+        file_name="issues.csv",
+        mime="text/csv",
+    )
 
     if uploaded_file and username and repo and token:
         try:
