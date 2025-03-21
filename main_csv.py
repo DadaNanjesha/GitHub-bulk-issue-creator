@@ -1,5 +1,5 @@
 from utils.github_api import create_issues_from_csv
-from config.config import CSV_FILE_PATH
+from config.config import CSV_FILE_PATH, USERNAME, REPO, TOKEN
 import os
 
 csv_file_path = CSV_FILE_PATH
@@ -15,7 +15,8 @@ def main():
         return
 
     print("Starting the process of creating GitHub issues from a CSV file...\n")
-    issues_created = create_issues_from_csv(csv_file_path)
+    issues_created = create_issues_from_csv(
+        csv_file_path, USERNAME, REPO, TOKEN)
     print(issues_created)
 
 
