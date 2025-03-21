@@ -3,22 +3,31 @@
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/DadaNanjesha/GitHub-issue-creator/python-app.yml?branch=main)](https://github.com/DadaNanjesha/GitHub-issue-creator/actions)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://create-bulk-issues-on-git.streamlit.app/)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red)](https://github.com/sponsors/DadaNanjesha)
 
 ### 📌 Automate your GitHub Issue creation effortlessly!
 
-The **GitHub Issue Creator** is a Python-based tool designed to automate the process of creating GitHub issues in your repositories. Whether you're managing a personal project or a large open-source repository, this tool saves time and ensures that necessary tasks are tracked efficiently.
+Tired of manually creating GitHub issues? The **GitHub Issue Creator** is a Python-based tool designed to automate this process, saving you valuable time and ensuring efficient task tracking. Whether you're managing a personal project or a large open-source repository, this tool is your go-to solution.
+
+✨ **Explore the App:** [Try Live Demo](https://create-bulk-issues-on-git.streamlit.app/) ✨ - Try it out now on Streamlit! 
 
 ---
 
-## 🧐 Why Use This?
+## 🚀 Features
 
-✅ **Automate Repetitive Tasks** – Quickly create multiple issues at once.  
-✅ **Customizable** – Modify issue templates to match your project needs.  
-✅ **Seamless GitHub API Integration** – Automatically push issues to any repository.  
-✅ **CSV File Integration** – Create issues faster using a CSV file.  
-✅ **Open-Source & Community-Friendly** – Contribute, improve, and extend features!  
+<div class="features-grid">
 
-### 🚀 Ideal for:
+✅ **CSV Bulk Upload** - Create 100+ issues in minutes  
+✅ **CLI Interface** - Perfect for CI/CD pipelines  
+✅ **Template Support** - Predefined issue structures  
+✅ **GitHub API v3** - Secure integration  
+✅ **Label Management** - Comma-separated tags  
+✅ **Open Source** - MIT Licensed  
+
+</div>
+
+### 🌟 Ideal for:
 - Setting up **project structures** 📁
 - Writing **unit tests** 🧪
 - Automating **CI/CD pipelines** ⚙️
@@ -35,13 +44,13 @@ Ensure you have:
 - **Git** → [Download Git](https://git-scm.com/downloads)
 
 ### 📥 Clone the Repository
-```bash
+```
 git clone https://github.com/DadaNanjesha/GitHub-issue-creator.git
 cd GitHub-issue-creator
 ```
 
 ### 📦 Install Dependencies
-```bash
+```
 pip install -r requirements.txt
 ```
 ---
@@ -77,11 +86,11 @@ GitHub-issue-creator/                  # Root directory
 
 ### 1️⃣ **Set Up Configuration**
 1. Place file in root directory as shown below:
-   ```bash
+   ```
    .env
    ```
 2. Open `.env` and add your **GitHub repository** details and **personal access token**:
-   ```env
+   ```
    USERNAME=your_github_username
    REPO=your_repo_name
    TOKEN=your_github_token
@@ -90,14 +99,14 @@ GitHub-issue-creator/                  # Root directory
 ### 2️⃣ **Run the Tool**
 #### **Option 1: Create Issues from a List**
 Execute the following command to generate issues from a predefined list:
-```bash
+```
 python main_list.py
 ```
 The script reads predefined issues from `issues/issues_list.py` and creates them automatically.
 
 #### **Option 2: Create Issues from a CSV**
 Execute the following command to generate issues from a CSV file:
-```bash
+```
 python main_csv.py
 ```
 ---
@@ -106,32 +115,21 @@ python main_csv.py
 
 You can now create issues faster using a **CSV file**. Here’s the required structure for the CSV file:
 
-#### **CSV File Structure**
+### 📝 CSV Format Guide
 
-| Column     | Description                                                                 | Example Value                                      |
-|------------|-----------------------------------------------------------------------------|----------------------------------------------------|
-| **title**  | The title of the issue.                                                     | `Set up initial project structure`                 |
-| **body**   | The description of the issue.                                               | `Create the directory structure for the project...`|
-| **labels** | A comma-separated list of labels (e.g., `"Backlog,Setup,Project Structure"`).| `"Backlog,Setup,Project Structure"`                |
-| **assignee**| The GitHub username of the assignee (leave empty for no assignee).          | `DadaNanjesha`                                     |
-
-#### **Example CSV File**
-
-Save the following content as `issues.csv` in the root directory:
-
-| title                                | body                                                                                       | labels                          | assignee      |
-|--------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------|---------------|
-| Set up initial project structure     | Create the directory structure for the project, including `data/`, `scripts/`, and `tests/ folders`, and initialize a basic Python environment. | `"Backlog,Setup,Project Structure"` | DadaNanjesha  |
-| Add API integration                  | Integrate the GitHub API to automate issue creation.                                       | `"Backlog,Feature,API Integration"` | DadaNanjesha  |
-
----
+| Column     | Required | Description                | Example                      |
+|------------|----------|----------------------------|------------------------------|
+| **title**  | ✅ Yes    | Issue title                | `Fix login page UI bug`      |
+| **body**   | ✅ Yes    | Detailed description       | `Update button colors...`    |
+| **labels** | ✅ Yes    | Comma-separated tags       | `bug,ui,high-priority`       |
+| **assignee**| ❌ No     | GitHub username            | `DadaNanjesha`  
 
 ### **How to Use the CSV File**
 
 1. Create a file named `issues.csv` in the root directory of the project.
 2. Add your issues in the above format.
 3. Run the following command to create issues from the CSV file:
-   ```bash
+   ```
    python main_csv.py
    ```
 
@@ -150,20 +148,6 @@ Save the following content as `issues.csv` in the root directory:
 💡 If you're planning major changes, **open an issue first** to discuss your proposal.
 
 ---
-
-## 💖 Sponsor This Project
-
-If you find this project helpful, consider sponsoring it to support further development. Your sponsorship will help us:
-
-- Add new features 🚀
-- Improve documentation 📚
-- Fix bugs 🐛
-- Maintain the project 🛠️
-
-👉 **[Sponsor this project](https://github.com/sponsors/DadaNanjesha)**
-
----
-
 ## 📜 License
 
 This project is licensed under the **[MIT License](LICENSE)**.
@@ -177,13 +161,9 @@ For any questions, issues, or feature requests, feel free to:
 
 ---
 
-💡 **Star this repository** ⭐ 
-if you find this project helpful!  
-
----
-
 ### 🔥 Key Improvements:
 
+✅ **Streamlit App Integration** - Try the app directly via the new link!
 ✅ **CSV File Integration** – Added support for creating issues faster using a CSV file.  
 ✅ **Sponsorship Section** – Encourages users to sponsor the project for further development.  
 ✅ **More engaging introduction** – Makes the project sound exciting and valuable.  
@@ -192,12 +172,27 @@ if you find this project helpful!
 ✅ **Better "Why Use This?" section** – Explains the benefits concisely.  
 ✅ **Enhanced readability** – Proper code blocks, file structures, and bold text for clarity.  
 
-
 ---
 ### 🎯 Further development in pipeline
-- Creating UI. 
+- Customizing the UI. 
 - Optimization if required.
 - Can include new features for better user experience.
 ---
 
+## 💖 Sponsor This Project
+
+If you find this project helpful, consider sponsoring it to support further development. Your sponsorship will help us:
+
+- Add new features 🚀
+- Improve documentation 📚
+- Fix bugs 🐛
+- Maintain the project 🛠️
+
+👉 **[Sponsor this project](https://github.com/sponsors/DadaNanjesha)**
+
+---
+<div align="center"> <h3>⭐ Star This Repository</h3> <p>If you find this project useful, please consider starring it!</p>
 🎯 Happy Coding! 🚀
+
+</div> 
+
