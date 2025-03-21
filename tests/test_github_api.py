@@ -48,7 +48,7 @@ class TestGitHubAPI(unittest.TestCase):
         mock_post.return_value = mock_response
 
         # Call the function
-        response = create_issue(self.test_issue)
+        response = create_issue(self.test_issue, USERNAME, REPO, TOKEN)
 
         # Assert that the API was called with the correct parameters
         mock_post.assert_called_once_with(
@@ -107,7 +107,7 @@ class TestGitHubAPI(unittest.TestCase):
         mock_post.return_value = mock_response
 
         # Simulate calling the create_issue function and assert the response
-        response = create_issue(self.test_issue)
+        response = create_issue(self.test_issue, USERNAME, REPO, TOKEN)
 
         # Assert that the response matches the expected error structure
         self.assertEqual(response.json(), {"message": "Bad Request"})
@@ -128,7 +128,7 @@ class TestGitHubAPI(unittest.TestCase):
         mock_post.return_value = mock_response
 
         # Simulate calling the create_issue function with missing data
-        response = create_issue(incomplete_issue)
+        response = create_issue(incomplete_issue, USERNAME, REPO, TOKEN)
 
         # Assert that the response matches the expected error structure
         self.assertEqual(response.json(), {"message": "Bad Request"})
@@ -155,7 +155,8 @@ class TestGitHubAPI(unittest.TestCase):
 
         # Call the function
         csv_file_path = "issues.csv"
-        issues_created = create_issues_from_csv(csv_file_path)
+        issues_created = create_issues_from_csv(
+            csv_file_path, USERNAME, REPO, TOKEN)
 
         # Assert that the file was opened correctly
         mock_file.assert_called_once_with(
