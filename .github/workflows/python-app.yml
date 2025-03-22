@@ -1,6 +1,7 @@
 name: Python application
 
 # This workflow will be triggered on push and pull requests to the 'main' and 'dev' branches
+
 on:
   push:
     branches: [main, dev]
@@ -44,8 +45,9 @@ jobs:
           echo "USERNAME: $USERNAME"
           echo "REPO: $REPO"
           echo "TOKEN: $TOKEN"
-
+test:
       # Step 6: Run the unit tests
       - name: Run tests
         run: |
           python -m unittest discover -s tests
+
