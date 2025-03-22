@@ -56,7 +56,7 @@ jobs:
           echo "TOKEN: $TOKEN"
 
       - name: Upload dependencies as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: python-deps
           path: ~/.cache/pip
@@ -82,7 +82,7 @@ jobs:
           python-version: '3.x'
 
       - name: Download dependencies artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: python-deps
           path: ~/.cache/pip
