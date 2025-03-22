@@ -179,20 +179,17 @@ For any questions, issues, or feature requests, feel free to:
 - Can include new features for better user experience.
 ---
 
-## 💖 Sponsor This Project
+## **[🤝 Support This Project ](https://github.com/sponsors/DadaNanjesha)** 
 
-If you find this project helpful, consider sponsoring it to support further development. Your sponsorship will help us:
+If you find this project helpful, consider sponsoring it to support further development:
 
 - Add new features 🚀
 - Improve documentation 📚
 - Fix bugs 🐛
 - Maintain the project 🛠️
 
-👉 **[Sponsor this project](https://github.com/sponsors/DadaNanjesha)**
-
 ---
-<div align="center"> <h3>⭐ Star This Repository</h3> <p>If you find this project useful, please consider starring it!</p>
+<div align="center"> <h3>⭐ Star This Repository</h3> <p>If you find this project useful, please consider starring it and also you can 💖 Sponsor!</p>
 🎯 Happy Coding! 🚀
-
 </div> 
 
