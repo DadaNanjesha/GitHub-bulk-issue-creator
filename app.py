@@ -41,7 +41,7 @@ def main():
                 unsafe_allow_html=True)
     st.write("<h4>📌 Automate your GitHub Issue creation effortlessly!</h4>",
              unsafe_allow_html=True)
-    st.write("<p>Tired of manually creating GitHub issues? The GitHub Issue Creator is a Python-based tool designed to automate this process, saving you valuable time and ensuring efficient task tracking. Whether you're managing a personal project or a large open-source repository, this tool is your go-to solution.<p>", unsafe_allow_html=True)
+    st.write("<p style='color: Black' >Tired of manually creating GitHub issues? The GitHub Issue Creator is a Python-based tool designed to automate this process, saving you valuable time and ensuring efficient task tracking. Whether you're managing a personal project or a large open-source repository, this tool is your go-to solution.<p>", unsafe_allow_html=True)
 
     # Sidebar for GitHub credentials
     with st.sidebar:
@@ -51,6 +51,9 @@ def main():
         repo = st.text_input("Repository Name", placeholder="owner/repo-name")
         token = st.text_input("Personal Access Token", type="password",
                               help="[Create GitHub Token](https://github.com/settings/tokens)")
+        st.markdown(
+            "<p style='color: Green'> Please provide your GitHub token with complete access to write issues.</p >", unsafe_allow_html=True)
+
         st.markdown("---")
         st.markdown(
             "**Need help?**\n\n1. Enter your GitHub credentials\n2. Download sample CSV\n3. Upload your CSV\n4. Create issues!")

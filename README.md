@@ -12,6 +12,7 @@ Tired of manually creating GitHub issues? The **GitHub Issue Creator** is a Pyth
 
 ✨ **Explore the App:** [Try Live Demo](https://create-bulk-issues-on-git.streamlit.app/) ✨ - Try it out now on Streamlit! 
 
+#### Note : If you are using the Streamlit App, Please provide your GitHub credentials in the sidebar and token with complete access.
 ---
 
 ## 🚀 Features
