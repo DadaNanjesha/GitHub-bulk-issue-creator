@@ -70,7 +70,7 @@ GitHub-issue-creator/                  # Root directory
 ├── tests/                             # Unit tests
 │   └── test_github_api.py             # Test cases for GitHub API integration
 │
-├── utils/                             # Utility scripts
+├── utils/                             # Utility scripts.
 │   └── github_api.py                  # GitHub API interaction functions
 │
 ├── main_csv.py                        # Script for CSV-based API issue creation
